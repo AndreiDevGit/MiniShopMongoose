@@ -6,7 +6,7 @@ const User = require('../models/user')
 
 const transporter = nodemailer.createTransport(sendgridTransport({
   auth: {
-    api_key: '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'
+    api_key: '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'
   }
 }))
 
@@ -109,5 +109,19 @@ exports.postLogout = (req, res, next) => {
   req.session.destroy(err => {
     console.log(err)
     res.redirect('/')
+  })
+}
+
+exports.getReset = (req, res, next) => {
+  let message = req.flash('error')
+  if (message.length > 0) {
+    message = message[0]
+  } else {
+    message = null
+  }
+  res.render('auth/reset', {
+    path: '/reset',
+    pageTitle: 'Reset Password',
+    errorMessage: message
   })
 }
