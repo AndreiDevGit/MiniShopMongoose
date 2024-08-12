@@ -67,6 +67,7 @@ exports.postLogin = (req, res, next) => {
         password: password
       },
       validationErrors: errors.array()
+      
     })
 
   }
