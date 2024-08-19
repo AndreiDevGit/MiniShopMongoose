@@ -53,7 +53,7 @@ exports.postAddProduct = (req, res, next) => {
       validationErrors: errors.array()
     })
   }
-  const imageUrl = image.path
+  const imageUrl = image.path.replace(/\\/g, '/')
 
   const product = new Product({
     title: title,
