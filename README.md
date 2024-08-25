@@ -16,3 +16,4 @@
 * nodemailer-sendgrid-transport
 * multer
 * PDFkit
+* Stripe
