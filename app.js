@@ -13,7 +13,7 @@ const errorController = require('./controllers/error')
 const User = require('./models/user')
 
 const MONGODB_URI =
-  'mongodb+srv://andreidev:andreidev@project0.ee9xrg1.mongodb.net/shop?retryWrites=true&w=majority&appName=Project0'
+  `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@project0.ee9xrg1.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`
 
 const app = express()
 const store = new MongoDBStore({
@@ -109,6 +109,6 @@ mongoose.connect(MONGODB_URI)
       //     user.save()
       //   }
       // })
-      app.listen(3000)
+      app.listen(process.env.PORT || 3000)
     }
   ).catch(err => console.log(err))
